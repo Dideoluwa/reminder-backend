@@ -101,15 +101,11 @@ const triggerSendMail = async () => {
 };
 
 // Set the cron expression to run the function every minute
-// const task = cron.schedule("0 */6 * * *", triggerSendMail);
+const task = cron.schedule("0 */6 * * *", triggerSendMail);
 
-const task = cron.schedule("*/14 * * * *", triggerSendMail);
+// const task = cron.schedule("*/14 * * * *", triggerSendMail);
 
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
-
-app.get("/set-timer", async (req, res) => {
+app.get("/", async (req, res) => {
   const currDate = +Date.now();
 
   // Convert 6 days to milliseconds
@@ -130,6 +126,28 @@ app.get("/set-timer", async (req, res) => {
     res.send(err.response);
   }
 });
+
+// app.get("/set-timer", async (req, res) => {
+//   const currDate = +Date.now();
+
+//   // Convert 6 days to milliseconds
+//   const sixDaysInMilliseconds = 6 * 24 * 60 * 60 * 1000;
+
+//   const futureDateInMilliseconds = currDate.getTime() + sixDaysInMilliseconds;
+
+//   try {
+//     const sendTimer = await postTimerForReminder({
+//       reminderTime: futureDateInMilliseconds,
+//     });
+//     res.status(200).send({
+//       status: 200,
+//       message: sendTimer.data,
+//       success: true,
+//     });
+//   } catch (err) {
+//     res.send(err.response);
+//   }
+// });
 
 // Start the cron job
 task.start();
