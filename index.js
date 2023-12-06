@@ -96,7 +96,7 @@ const triggerSendMail = async () => {
       return sendMailRes;
     }
   } catch (err) {
-    console.log(`error in ${err.response}`);
+    console.log(`error in ${err}`);
   }
 };
 
