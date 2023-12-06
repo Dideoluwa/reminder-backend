@@ -64,7 +64,7 @@ const sendMail = () => {
     from: "DOn <dideoluwaoni@gmail.com>",
     to: recieverMail,
     subject: `GO AND RENEW YOUR AIRTIME!!!!!!!.`,
-    html: `<b>Hey Dummy!, <br>Guess what bro?.<br>It's almost been a week since you bought airtime, go and buy more airtime. Broke Ass!<br><a href=https://darasimioni.vercel.app/>Click when you have renewed.<a/>.`,
+    html: `<b>Hey Dummy!, <br>Guess what bro?.<br>It's almost been a week since you bought airtime, go and buy more airtime. Broke Ass!<br><a href=https://airtime-reminder.netlify.app//>Click when you have renewed.<a/>.`,
   };
 
   transporter.sendMail(message, (err, info) => {
@@ -101,9 +101,9 @@ const triggerSendMail = async () => {
 };
 
 // Set the cron expression to run the function every minute
-const task = cron.schedule("0 */6 * * *", triggerSendMail);
+// const task = cron.schedule("0 */6 * * *", triggerSendMail);
 
-// const task = cron.schedule("*/2 * * * *", triggerSendMail);
+const task = cron.schedule("*/5 * * * *", triggerSendMail);
 
 app.get("/", (req, res) => {
   res.send("hello world");
