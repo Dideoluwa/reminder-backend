@@ -83,10 +83,9 @@ const sendMail = () => {
 
 //check timer to know when to send mail
 const triggerSendMail = async () => {
+  // get the current timestamp
+  const dateNow = +Date.now();
   try {
-    // get the current timestamp
-    const dateNow = +Date.now();
-
     // Fetch set timestamp from database
     const timerRes = await getTimer();
 
