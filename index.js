@@ -103,7 +103,7 @@ const triggerSendMail = async () => {
 // Set the cron expression to run the function every minute
 // const task = cron.schedule("0 */6 * * *", triggerSendMail);
 
-const task = cron.schedule("* * * * *", triggerSendMail);
+const task = cron.schedule("*/14 * * * *", triggerSendMail);
 
 app.get("/", (req, res) => {
   res.send("hello world");
