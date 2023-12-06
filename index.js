@@ -109,13 +109,13 @@ app.get("/", async (req, res) => {
   const currDate = +Date.now();
 
   // Convert 6 days to milliseconds
-  const sixDaysInMilliseconds = 6 * 24 * 60 * 60 * 1000;
+  //   const sixDaysInMilliseconds = 6 * 24 * 60 * 60 * 1000;
 
-  const futureDateInMilliseconds = currDate.getTime() + sixDaysInMilliseconds;
+  //   const futureDateInMilliseconds = currDate.getTime() + sixDaysInMilliseconds;
 
   try {
     const sendTimer = await postTimerForReminder({
-      reminderTime: futureDateInMilliseconds,
+      reminderTime: currDate,
     });
     res.status(200).send({
       status: 200,
