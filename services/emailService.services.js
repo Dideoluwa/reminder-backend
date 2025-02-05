@@ -18,14 +18,14 @@ const createEmailTransporter = () => {
 
 const sendReminderEmail = async () => {
   const message = {
-    from: "DOn <dideoluwaoni@gmail.com>",
+    from: `DOn <${userEmail}>`,
     to: recieverMail,
     subject: `Reminder to renew your airtime.`,
     html: `<b>Hey Hey!, <br>Guess what?.<br>It's almost been a week since you bought airtime. Don't you think it's nice to renew today?.<br><a href=https://airtime-reminder.netlify.app//>Click when you have renewed your airtime. Thanks.<a/>.`,
   };
 
   try {
-    const info = await createEmailTransporter.sendMail(message);
+    const info = await createEmailTransporter().sendMail(message);
     console.log(`success in sending message ${info}`);
     return { success: true, message: info };
   } catch (err) {
@@ -41,14 +41,14 @@ const sendConfirmationEmail = async (time) => {
   const year = date.getFullYear();
 
   const message = {
-    from: "DOn <dideoluwaoni@gmail.com>",
+    from: `DOn <${userEmail}>`,
     to: recieverMail,
     subject: `Success.`,
     html: `<b>Hey again!, <br>I'm so happy I could help remind you.<br>We will see some other time.<br>Your next airtime renewal reminder will be ${day}/${month}/${year}.`,
   };
 
   try {
-    const info = await createEmailTransporter.sendMail(message);
+    const info = await createEmailTransporter().sendMail(message);
     console.log(`success in sending message ${info}`);
     return { success: true, message: info };
   } catch (err) {
