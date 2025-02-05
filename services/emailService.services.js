@@ -13,6 +13,9 @@ const createEmailTransporter = () => {
       user: userEmail,
       pass: password,
     },
+    tls: {
+      rejectUnauthorized: false,
+    },
   });
 };
 
