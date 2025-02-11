@@ -24,7 +24,12 @@ const sendReminderEmail = async () => {
     from: `DOn <${userEmail}>`,
     to: recieverMail,
     subject: `Reminder to renew your airtime.`,
-    html: `<b>Hey Hey!, <br>Guess what?.<br>It's almost been a week since you bought airtime. Don't you think it's nice to renew today?.<br><a href=https://airtime-reminder.netlify.app//>Click when you have renewed your airtime. Thanks.<a/>.`,
+    html: `<div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; margin: 20px auto; max-width: 600px;">
+            <h2 style="color: #333; font-family: Arial, sans-serif;">Hey Hey!</h2>
+            <p style="color: #555; font-family: Arial, sans-serif;">Guess what?</p>
+            <p style="color: #555; font-family: Arial, sans-serif;">It's almost been a week since you bought airtime. Don't you think it's nice to renew today?</p>
+            <p style="color: #555; font-family: Arial, sans-serif;"><a href="https://airtime-reminder.netlify.app/" style="color: #007bff; text-decoration: none;">Click when you have renewed your airtime. Thanks.</a></p>
+          </div>`,
   };
 
   try {
@@ -47,7 +52,14 @@ const sendConfirmationEmail = async (time) => {
     from: `DOn <${userEmail}>`,
     to: recieverMail,
     subject: `Success.`,
-    html: `<b>Hey again!, <br>I'm so happy I could help remind you.<br>We will see some other time.<br>Your next airtime renewal reminder will be ${day}/${month}/${year}.`,
+    html: `<div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; margin: 20px auto; max-width: 600px;">
+            <h2 style="color: #333; font-family: Arial, sans-serif;">Hey again!</h2>
+            <p style="color: #555; font-family: Arial, sans-serif;">I'm so happy I could help remind you.</p>
+            <p style="color: #555; font-family: Arial, sans-serif;">We will see some other time.</p>
+            <p style="color: #555; font-family: Arial, sans-serif;">Your next airtime renewal reminder will be ${day}/${month}/${year}.</p>
+            <p style="color: #555; font-family: Arial, sans-serif;">Best regards,</p>
+            <p style="color: #555; font-family: Arial, sans-serif;">Airtime Reminder Team</p>
+          </div>`,
   };
 
   try {
